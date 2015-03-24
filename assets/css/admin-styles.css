@@ -1,0 +1,80 @@
+/**{
+	outline: 1px dotted red;
+}*/
+body{
+	margin: 0 auto;
+	text-align: center;
+}
+.box{
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	padding: 30px;
+	margin-bottom: 20px;
+	text-align: left;
+}
+.login{
+	margin-left: 300px;
+}
+.select-order{
+	margin-top: 20px;
+	text-align: right;
+}
+thead{
+	background: #888;
+}
+.order{
+	background: #ccc;
+}
+.order-detail{
+	margin-left: 30px;
+	margin-top: 30px;
+	padding: 5px;
+}
+.status{
+	background: red;
+	color: white;
+	margin-left: 212px;
+	border: 1px solid black;
+}
+textarea{
+	width: 100%;
+	height: 200px;
+
+}
+.userInfo{
+	width: 100%;
+	height: 150px;
+	font-size: 18px;
+}
+.inline{
+	display: inline-block;
+}
+.signin{
+	color:white;
+}
+a:hover{
+	text-decoration: none;
+}
+.warn{
+	color: red;
+	font-size: 18px;
+}
+.success{
+	color: green;
+	font-size: 18px;
+}
+.alert{
+	text-align: center;
+}
+#input{
+	border: none;
+	background: none;
+	/*text-decoration: underline;*/
+	color: red;
+}
+.edit{
+	margin-left: 310px;
+}
+.submit{
+	text-align: center;
+}

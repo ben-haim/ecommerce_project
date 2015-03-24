@@ -1,0 +1,48 @@
+div.header {
+	margin-bottom: 10px;
+}
+div.header h3 {
+	margin:0;
+	padding: 2px;
+}
+div.product-display {
+	min-height: 260px;
+}
+div.category-display {
+} 
+div.category-display > div.caption > h4 {
+	text-align: center;
+	text-transform: uppercase;
+}
+div.caption > h4 {
+	min-height: 50px;
+}
+div.thumbnail > a > img {
+	margin-top: 15px;
+	margin-bottom: -5px;
+}
+div.thumbnail > img {
+	margin-top: 15px;
+	margin-bottom: -5px;
+}
+table, th {
+	text-align: center;
+}
+.alert {
+	margin-top: -15px;
+}
+input.link {
+	border: none;
+	background: none;
+	color: salmon;
+	text-decoration: underline
+}
+input.link:hover {
+	text-decoration: none
+}
+div.alert {
+	text-align: center;
+}
+#search-bar {
+	margin-right: -30px;
+}
