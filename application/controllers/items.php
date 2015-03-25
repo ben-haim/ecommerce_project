@@ -17,12 +17,6 @@ class Items extends CI_Controller {
 		$this->load->view('welcome');
 	}
 
-	// public function index()
-	// {
-	// 	$items = $this->item->retrieveAllItems();
-	// 	$this->load->view('items', array('items' => $items));
-	// }
-
 	public function getItemsByCategory($id)
 	{
 		$items = $this->item->getItemsByCategory($id);

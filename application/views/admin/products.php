@@ -1,7 +1,17 @@
   <?php $this->load->view('partials/head') ?>
   <title>Products List</title>
+<script>
+		$(document).ready(function() {
+			$('button.change-img').on('click', function() {
+				var id = $(this).val();
+				$('#passId').val(id);
+			})
+		});
+	</script>
+<head>
  <?php $this->load->view('partials/header_logoff') ?>
 <?php $this->load->view('partials/messages') ?>
+<?php $this->load->view('partials/modal') ?>
 
   <div class="jumbotron">
  
@@ -41,7 +51,10 @@
 foreach ($products as $product) {
  ?>
 		<tr>
-			<td><img src="/assets/img/md/<?= $product['img_name'] ?>" height="60px" width="80px"></td>
+			<td>
+				<img src="/assets/img/lg/<?= $product['img_name'] ?>" height="60px" width="80px">
+				<button class="btn btn-info btn-block change-img" data-toggle="modal" data-target=".upload-photo" value="<?= $product['id']; ?>">Change Image</button>
+			</td>
 			<td><?= $product['id'] ?></td>
 			<td><?= $product['name'] ?></td>
 			<td><?= $product['inventory'] ?></td>

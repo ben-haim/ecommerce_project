@@ -24,9 +24,8 @@
     <input type="text" name ="categories" class="form-control" value="<?= $item['category'] ?>">
   </div>
   <div class="form-group">
-    <label for="images">Images</label>
-	    <input type="file" name="fileToUpload" id="fileToUpload">
-	    <input type="submit" value="Upload Image" name="submit">
+    <label for="categories">Inventory</label>
+    <input type="text" name ="inventory" class="form-control" value="<?= $item['inventory'] ?>">
   </div>
 <div class="submit">
   <a class="btn btn-default" href="products">Cancel</a>

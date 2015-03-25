@@ -24,3 +24,30 @@
     </div>
   </div>
 </div>
+
+
+<div class="modal fade upload-photo" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Image Upload</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <form action="/upload_photo" method="post" enctype="multipart/form-data">
+            <input type="file" name="fileToUpload">
+            <p class="help-block">Choose a file to upload.</p>
+            <input type="hidden" name="action" value="upload_photo">
+            <input type="hidden" id="passId" name="item_id" value="">
+        </div>
+            <input type="submit" class="btn btn-info" value="Submit">
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <p>This is the footer</p>
+      </div>
+    </div>
+  </div>
+</div>

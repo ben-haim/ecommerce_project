@@ -48,8 +48,8 @@ public function retrieveOneItem($item)
 
 public function updateItem($item)
 {
-	$query = "UPDATE items SET name=?, description=?, category=? WHERE id=?";
-	$value = array($item['name'], $item['description'], $item['categories'], $item['id']);
+	$query = "UPDATE items SET name=?, description=?, category=?, inventory=? WHERE id=?";
+	$value = array($item['name'], $item['description'], $item['categories'], $item['inventory'], $item['id']);
 	$this->db->query($query, $value);
 	// return $this->db->insert_id();
 }
@@ -74,6 +74,14 @@ public function search($item)
 
 	return $result;
 }
+
+	public function uploadPhoto($img_name, $id)
+	{
+		$query = "UPDATE photos SET img_name = ?, photos_item_id = ? WHERE id = ?";
+		$values = array($img_name, $id, $id);
+		$result = $this->db->query( $query, $values);
+		return $result;
+	}
 
 // public function searchOrder($order)
 // {

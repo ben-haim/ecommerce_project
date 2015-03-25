@@ -31,11 +31,6 @@
     <label for="inventory">Inventory</label>
     <input type="number" name ="inventory" class="form-control">
     </div>
-  <div class="form-group">
-    <label for="images">Images</label>
-	    <input type="file" name="fileToUpload" id="fileToUpload">
-	    <input type="submit" value="Upload Image" name="submit">
-  </div>
 <div class="submit">
   <a class="btn btn-default" href="products">Cancel</a>
   <input type="submit" class="btn btn-default" value="Add">

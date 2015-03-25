@@ -16,12 +16,9 @@ $route['show/items/category/(:any)'] = "/items/getItemsByCategory/$1";
 
 $route['404_override'] = '';
 
-
-
 $route['admin'] = 'admins';
 
 $route['login'] = "admins/login";
-
 
 // admin routes
 
@@ -37,6 +34,11 @@ $route['createNew'] = "admins/createNew";
 $route['delete/(:num)'] = "admins/delete/$1";
 $route['search'] = "admins/search";
 $route['search_order'] = "admins/searchOrder";
+
+
+
+$route['upload'] = "admins/upload";
+$route['upload_photo'] = "admins/upload_photo";
 
 
 

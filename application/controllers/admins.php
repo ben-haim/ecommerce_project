@@ -102,6 +102,100 @@ class admins extends CI_Controller {
 		redirect('admins');
 	}
 
+	public function upload()
+	{
+		$this->load->view('admin/upload_photo');
+	}
+
+	public function upload_photo()
+	{
+
+		$id = $this->input->post('item_id');
+
+		function randomKey() 
+		{
+		  $key = '';  
+		  for ($i=0; $i < 10 ; $i++) 
+		  { 
+		  	$key = $key.rand(0,100);
+		  }
+		  return $key;
+		}
+
+		$rand = randomKey();
+		$target_dir = "./assets/img/lg/";
+		$originalName = basename($_FILES["fileToUpload"]["name"]);
+		$imageFileType = pathinfo($originalName,PATHINFO_EXTENSION);
+		$target_file = $target_dir . $rand . "." . $imageFileType;
+		// $newImageName = $rand . "." . $imageFileType;
+		$uploadOk = 1;
+		// Check if image file is a actual image or fake image
+		if(isset($_POST["submit"])) 
+		{
+	    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+	    if($check !== false) 
+	    {
+	      echo "File is an image - " . $check["mime"] . ".";
+	      $uploadOk = 1;
+	    } 
+	    else 
+	    {
+	      echo "File is not an image.";
+	      $uploadOk = 0;
+	    }
+		}
+		// Check if file already exists
+		if (file_exists($target_file)) 
+		{
+		  echo "Sorry, file already exists.";
+		  $uploadOk = 0;
+		}
+		// Check file size
+		if ($_FILES["fileToUpload"]["size"] > 5000000) 
+		{
+		  echo "Sorry, your file is too large.";
+		  $uploadOk = 0;
+		}
+		// Allow certain file formats
+		if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+		&& $imageFileType != "gif" ) 
+		{
+		  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+		  $uploadOk = 0;
+		}
+		// Check if $uploadOk is set to 0 by an error
+		if ($uploadOk == 0) 
+		{
+		  echo "Sorry, your file was not uploaded.";
+		// if everything is ok, try to upload file
+		} 
+		else 
+		{
+	    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) 
+	    {
+      
+        $img_name = $rand.".".$imageFileType;
+  
+       	$result = $this->admin->uploadPhoto($img_name, $id);
+
+       	if($result)
+       	{
+       		redirect('admins/products');
+       	}
+       	else
+       	{
+       		die('fail!');
+       	}
+	    } 
+	    else 
+	    {
+		    echo "Sorry, there was an error uploading your file.";
+		  }
+		}
+
+
+
+}
 }
 
 //end of main controller
