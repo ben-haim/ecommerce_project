@@ -2,6 +2,24 @@
   $this->load->view('partials/head');
 ?>
   <title>Update Account</title>
+  <script>
+    $(document).ready(function() {
+      $('#billingSame').on('click', function() {
+        var firstName = $("#s_first_name").val();
+        var lastName = $("#s_last_name").val();
+        var address = $("#s_address").val();
+        var city = $("#s_city").val();
+        var state = $("#s_state").val();
+        var zip = $("#s_zip").val();
+        $('#b_first_name').val(firstName);
+        $('#b_last_name').val(lastName);
+        $('#b_address').val(address);
+        $('#b_city').val(city);
+        $('#b_state').val(state);
+        $('#b_zip').val(zip);
+      })
+    });
+  </script>
 </head>
 <body>
 <?php 
@@ -48,7 +66,7 @@
           <h2>Billing Information</h2>
           <div class="checkbox">
             <label>
-              <input type="checkbox" name="billingSame"> Same as Shipping
+              <input type="checkbox" name="billingSame" id="billingSame"> Same as Shipping
             </label>
           </div>
           <div class="form-group">

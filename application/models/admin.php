@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class admin extends CI_Model{
+class admin extends CI_Model {
 
 	public function retrieveAll()
 	{
@@ -78,15 +78,12 @@ class admin extends CI_Model{
 		return $result;
 	}
 
-
 	public function updateStatus($item)
 	{
 		$query="UPDATE orders SET status=? WHERE id=?";
 		$value=array($item['status'], $item['id']);
 		$result = $this->db->query($query, $value);
 	}
-
-
 
 	public function uploadPhoto($img_name, $id)
 	{
@@ -95,18 +92,16 @@ class admin extends CI_Model{
 		$result = $this->db->query( $query, $values);
 		return $result;
 	}
-
-<<<<<<< HEAD
 	public function searchOrder($order)
 	{
-	// 	$this->db->like('s_first_name',$order);
-	// 	$this->db->or_like('created_at',$order);
-	// 	$this->db->or_like('s_address',$order);
-	// 	$this->db->or_like('amount',$order);
-	// 	$this->db->or_like('status',$order);
-	// 	$result = $this->db->get($table) ->result_array();
-	// 	var_dump($result);
-	// 	die();
+		// $this->db->like('s_first_name',$order);
+		// $this->db->or_like('created_at',$order);
+		// $this->db->or_like('s_address',$order);
+		// $this->db->or_like('amount',$order);
+		// $this->db->or_like('status',$order);
+		// $result = $this->db->get($table) ->result_array();
+		// var_dump($result);
+		// die();
 
 		$query = "SELECT * FROM orders JOIN customers ON orders.customer_id = customers.id WHERE orders.id LIKE ? OR b_first_name LIKE ? OR b_address LIKE ? OR amount LIKE ? OR status LIKE ?";
 		// $search = $order;
@@ -115,7 +110,4 @@ class admin extends CI_Model{
 		die();
 	}
 
-
-=======
->>>>>>> e78c312af5402e9c57c8fa2be690e3a135d4cc3a
 }

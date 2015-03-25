@@ -13,11 +13,11 @@ $route['show/item/(:num)'] = "/items/showItem/$1";
 $route['show/items/category/(:any)'] = "/items/getItemsByCategory/$1";
 
 // SESSION CONTROLLER
-$route['signIn'] = "items/signIn";
-$route['register'] = "items/register";
-$route['logOut'] = "items/logOut";
-$route['update_account/(:num)'] = "items/account/$1";
-$route['updateAccount'] = "items/updateAccount";
+$route['signIn'] = "users/signIn";
+$route['register'] = "users/register";
+$route['logOut'] = "users/logOut";
+$route['update_account/(:num)'] = "users/account/$1";
+$route['updateAccount'] = "users/updateAccount";
 
 // ADMINS CONTROLLER
 $route['admin'] = 'admins';

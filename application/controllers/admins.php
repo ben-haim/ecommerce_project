@@ -14,7 +14,6 @@ class admins extends CI_Controller {
 		}
 	}
 
-
 	public function login()
 	{
 		$email = $this->input->post('email');
@@ -38,7 +37,6 @@ class admins extends CI_Controller {
 		}
 	}
 
-
 	public function dashboard()
 	{
 		if($this->session->userdata('user_level') == 'admin')
@@ -61,7 +59,6 @@ class admins extends CI_Controller {
 	public function status()
 	{
 		$this->admin->updateStatus($this->input->post());
-
 		redirect('admins/dashboard');
 	}
 
@@ -69,13 +66,10 @@ class admins extends CI_Controller {
 	{
 		$result = $this->admin->retrieveAllProducts();
 		$this->load->library('pagination');
-
 		$config['base_url'] = 'admin/products';
 		$config['total_rows'] = count($result);
 		$config['per_page'] = 2; 
-
 		$this->pagination->initialize($config); 
-
 		$this->pagination->create_links();
 		$this->load->view('admin/products', array('products'=>$result));
 	}
@@ -123,24 +117,19 @@ class admins extends CI_Controller {
 
 	public function orderPage($page = 1)
     {
-
-        $all_order_data = $this->admin->retrieveAll();
-
-        $page_order_data = array();
-        $count = 5 * $page - 5;
-        
-        for ($i=$count;$i<count($all_order_data);$i++)
-        {
-            array_push($page_order_data, $all_order_data[$i]);
-            $count++;
-        
-            if ($count >= 5 * $page)
-            {
-                break;
-            }
-        }
-
-        $this->load->view('admin/dashboard', $page_order_data);
+      $all_order_data = $this->admin->retrieveAll();
+      $page_order_data = array();
+      $count = 5 * $page - 5;
+      for ($i=$count;$i<count($all_order_data);$i++)
+      {
+	      array_push($page_order_data, $all_order_data[$i]);
+	      $count++;
+	      if ($count >= 5 * $page)
+	      {
+	        break;
+	      }
+      }
+	      $this->load->view('admin/dashboard', $page_order_data);
     }
 
 	public function logoff()
@@ -156,9 +145,7 @@ class admins extends CI_Controller {
 
 	public function upload_photo()
 	{
-
 		$id = $this->input->post('item_id');
-
 		function randomKey() 
 		{
 		  $key = '';  
@@ -168,7 +155,6 @@ class admins extends CI_Controller {
 		  }
 		  return $key;
 		}
-
 		$rand = randomKey();
 		$target_dir = "./assets/img/lg/";
 		$originalName = basename($_FILES["fileToUpload"]["name"]);
@@ -220,12 +206,9 @@ class admins extends CI_Controller {
 		{
 	    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) 
 	    {
-      
         $img_name = $rand.".".$imageFileType;
-  
        	$result = $this->admin->uploadPhoto($img_name, $id);
-
-       	if($result)
+      	if($result)
        	{
        		redirect('admins/products');
        	}
