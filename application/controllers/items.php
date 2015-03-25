@@ -62,10 +62,26 @@ class Items extends CI_Controller {
 
 	public function placeOrder()
 	{
+		
+		$items = $this->session->userdata('orders');
+		$postData = $this->input->post();
+		$result = $this->item->submitOrder($postData, $items);
+		if($result)
+		{
+			$this->session->unset_userdata('orders');
+			$this->session->set_userdata('orders', []);
+			redirect('success');
+		}
+		else
+		{
+			$this->session->set_flashdata('error', 'Something went wrong! We could not place your order. Please try again later.');
+			redirect('cart');
+		}
+	}
 
-		var_dump($this->input->post());
-		die();
-
+	public function success()
+	{
+		$this->load->view('success');
 	}
 
 	public function cart()
@@ -86,7 +102,7 @@ class Items extends CI_Controller {
 			$this->session->set_userdata('email', $user['email']);
 			$this->session->set_userdata('id', $user['id']);
 			$this->session->set_flashdata('success', 'Login Successful!');
-			redirect('/');
+			redirect('cart');
 		}
 		else
 		{
@@ -124,18 +140,22 @@ class Items extends CI_Controller {
 		if($result)
 		{
 			$this->session->set_flashdata('success', 'Account successfully updated!');
-			redirect('/');
+			redirect('cart');
 		}
 		else
 		{
 			$this->session->set_flashdata('error', 'Something went wrong! We could not update your account info at this moment.');
-			redirect('/');
+			redirect('update_account');
 		}
 	}
 
 	public function logOut()
 	{
-		$this->session->sess_destroy();
+		$this->session->unset_userdata('logged_in');
+		$this->session->unset_userdata('id');
+		$this->session->unset_userdata('email');
+		$this->session->unset_userdata('first_name');
+		$this->session->unset_userdata('last_name');
 		redirect('/');
 	}
 

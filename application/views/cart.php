@@ -12,8 +12,22 @@
 	<div class="container"> 
   	<div class="row">    
     	<div class="col-lg-12">
-				<h2>Your Shopping Cart</h2>
+				<h2 class="inline">Your Shopping Cart</h2>
+				 <a href="/"><button class="btn btn-warning pull-right inline">Continue Shopping</button></a>
 				<br>
+				<br>
+<?php 	
+				$cart = $this->session->userdata('orders');
+				if(count($cart) == 0)
+				{
+?>
+				<h5>Your cart is currently empty. <a href="/">Continue Shopping</a></h5>
+<?php 
+}
+else
+{
+
+?>
 				<table class="table">
 		      <thead>
 		        <tr>
@@ -53,7 +67,7 @@
 <?php 		}
 ?>
 <!-- LOOP ENDS -->
-		        <tr>
+						<tr>
 		          <th scope="row"></th>
 		          <td></td>
 		          <td></td>
@@ -61,26 +75,67 @@
 		          <td><b>Subtotal:</b></td>
 							<td>$<?= $total ?></td>
 		        </tr>
+		        <tr>
+		          <th scope="row"></th>
+		          <td></td>
+		          <td></td>
+		          <td></td>
+		          <td><b>Shipping:</b></td>
+							<td>$1.00</td>
+		        </tr>
+		        <tr>
+		          <th scope="row"></th>
+		          <td></td>
+		          <td></td>
+		          <td></td>
+		          <td><b>Total:</b></td>
+							<td>$<?= $total +1 ?></td>
+		        </tr>
 		      </tbody>
 		    </table>
-		   <a href="/"><button class="btn btn-warning pull-right">Continue Shopping</button></a>
 			</div>
+		
+<?php 	if($this->session->userdata('logged_in') == TRUE)
+				{
+?>				<div class="row">    
+			    	<div class="col-lg-12">
+							<form action="/placeOrder" method="post" class="pull-right">
+								<input type="hidden" name="amount" value="<?= $total ?>">
+								<input type="hidden" name="customer_id" value="<?= $this->session->userdata('id'); ?>">
+							  <script
+							    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+							    data-key="pk_test_bkpHozSLIXoN2DHJgihojEWP"
+							    data-amount="<?= $total *100 ?>"
+							    data-name="Hello Yeti"
+							    data-description="2 widgets ($<?= $total ?>)"
+							    data-image="/assets/img/main/store.png">
+							  </script>
+							</form>
+						</div>
+			    </div>
+<?php 	}
+				else
+				{
+?>			<div class="container">
+					<div class="row">    
+				    <div class="col-lg-12">
+				   	<div class="col-lg-8"></div> 
+							<div class="col-lg-4" style="text-align: right">	
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".sign-in">Sign In</button>
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".register-user">Register</button>
+									<br>
+									<br>
+									<p>Please Sign In or Register to Checkout</p>
+							</div>
+						</div>	
+					</div>
+				</div>
+<?php
+				}
+			}
+?>	
+
 		</div>
-		<div class="row">    
-    	
-    	<div class="col-lg-6">
-			<form action="/placeOrder" method="post">
-				  <script
-				    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-				    data-key="pk_test_bkpHozSLIXoN2DHJgihojEWP"
-				    data-amount="<?= $total *100 ?>"
-				    data-name="Hello Yeti"
-				    data-description="2 widgets ($<?= $total ?>)"
-				    data-image="/assets/img/main/store.png">
-				  </script>
-				</form>
-			</div>
-    </div>
 	</div>
   <hr>
 </body>

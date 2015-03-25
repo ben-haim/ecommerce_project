@@ -46,3 +46,10 @@ div.alert {
 #search-bar {
 	margin-right: -30px;
 }
+.inline {
+	display: inline-block;
+	vertical-align: top;
+}
+button.inline {
+	margin-top: 15px; 
+}

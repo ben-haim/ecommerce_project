@@ -6,6 +6,7 @@ $route['404_override'] = '';
 // ITEMS CONTROLLER
 $route['placeOrder'] = "items/placeOrder";
 $route['cart'] = "items/cart";
+$route['success'] = "items/success";
 $route['addToCart'] = "items/addToCart";
 $route['removeFromCart'] = "items/removeFromCart";
 $route['show/item/(:num)'] = "/items/showItem/$1";

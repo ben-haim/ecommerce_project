@@ -62,10 +62,20 @@ class Item extends CI_Model {
 		return $result;
 	}
 
-	public function logout()
+	public function submitOrder($postData, $items)
 	{
-		$this->session->sess_destroy();
-		redirect('/');
+		$query = "INSERT INTO orders (customer_id, amount, stripeToken, stripeTokenType, status, created_at, updated_at) VALUES (?, ?, ?, ?, ?, NOW(), NOW())";
+		$values = array($postData['customer_id'], $postData['amount'], $postData['stripeToken'], $postData['stripeTokenType'], 'In process');
+		$this->db->query( $query, $values);
+
+		$order_id = $this->db->insert_id();
+
+		foreach ($items as $item) {
+			$query = "INSERT INTO orders_items (order_id, item_id, quantity) VALUES (?, ?, ?)";
+			$values = array($order_id, $item['id'], $item['quantity']);
+			$result = $this->db->query($query, $values);
+		}
+		return $result;
 	}
 
 }

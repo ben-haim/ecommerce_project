@@ -17,7 +17,7 @@
 <?php   }
         else
         {
-?>        <a href="/account/<?= $this->session->userdata('id');?>"><button type="button" class="btn btn-primary">Account</button></a>
+?>        <a href="/update_account/<?= $this->session->userdata('id');?>"><button type="button" class="btn btn-primary">Account</button></a>
           <a href="/logOut"><button type="button" class="btn btn-primary">Log Out</button></a>
 <?php        
         }
