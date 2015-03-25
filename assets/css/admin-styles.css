@@ -29,11 +29,11 @@ thead{
 	margin-top: 30px;
 	padding: 5px;
 }
-.status{
-	background: red;
+#status{
 	color: white;
 	margin-left: 212px;
-	border: 1px solid black;
+	border: 1px solid red;
+	border-radius: 10px;
 }
 textarea{
 	width: 100%;

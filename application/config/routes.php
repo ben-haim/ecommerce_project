@@ -25,6 +25,7 @@ $route['login'] = "admins/login";
 $route['logoff'] = "admins/logoff";
 $route['order'] = "admins/retrieveOneOrder";
 $route['dashboard'] = "admins/dashboard";
+$route['admins/home'] = "admins/index";
 $route['home'] = "admins/index";
 $route['products'] = "admins/products";
 $route['edit'] = "admins/edit";
@@ -33,7 +34,8 @@ $route['addProduct'] = "admins/addItem";
 $route['createNew'] = "admins/createNew";
 $route['delete/(:num)'] = "admins/delete/$1";
 $route['search'] = "admins/search";
-$route['search_order'] = "admins/searchOrder";
+$route['search_order'] = "admins/search_order";
+$route['status'] = "admins/status";
 
 // PHOTOS CONTROLLER
 $route['upload'] = "admins/upload";
