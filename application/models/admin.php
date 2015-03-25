@@ -59,6 +59,13 @@ public function createNew($item)
 	$query="INSERT INTO items (name, description, category, price, inventory, created_at, updated_at) VALUES (?, ?, ?, ?, ?, NOW(), NOW())";
 	$value=array($item['name'], $item['description'], $item['categories'], $item['price'], $item['inventory']);
 	$this->db->query($query, $value);
+
+	$id = $this->db->insert_id();
+
+	$photo_query = "INSERT INTO photos (img_name, type, created_at, updated_at, photos_item_id) VALUES (?, ?, NOW(), NOW(), ?)";
+	$values = array('temp.jpg', 'sub', $id);
+	$result = $this->db->query( $photo_query, $values );
+	return $result;
 }
 
 public function delete($id)

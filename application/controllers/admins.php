@@ -192,10 +192,7 @@ class admins extends CI_Controller {
 		    echo "Sorry, there was an error uploading your file.";
 		  }
 		}
-
-
-
-}
+	}
 }
 
 //end of main controller
