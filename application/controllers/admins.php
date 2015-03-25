@@ -52,6 +52,15 @@ class admins extends CI_Controller {
 	public function products()
 	{
 		$result = $this->admin->retrieveAllProducts();
+		$this->load->library('pagination');
+
+$config['base_url'] = 'admin/products';
+$config['total_rows'] = count($result);
+$config['per_page'] = 2; 
+
+$this->pagination->initialize($config); 
+
+ $this->pagination->create_links();
 		$this->load->view('admin/products', array('products'=>$result));
 	}
 
@@ -90,11 +99,40 @@ class admins extends CI_Controller {
 		$this->load->view('admin/search_result', array('items'=>$result));
 	}
 	
-	public function searchOrder()
+	public function search_order()
 	{
 		$result = $this->admin->searchOrder($this->input->post('search'));
 		$this->load->view('admin/search_result', array('items'=>$result));
 	}
+
+	public function status()
+	{
+		$this->admin->updateStatus($this->input->post());
+
+		redirect('admins/dashboard');
+	}
+
+	public function orderPage($page = 1)
+    {
+
+        $all_order_data = $this->admin->retrieveAll();
+
+        $page_order_data = array();
+        $count = 5 * $page - 5;
+        
+        for ($i=$count;$i<count($all_order_data);$i++)
+        {
+            array_push($page_order_data, $all_order_data[$i]);
+            $count++;
+        
+            if ($count >= 5 * $page)
+            {
+                break;
+            }
+        }
+
+        $this->load->view('admin/dashboard', $page_order_data);
+    }
 
 	public function logoff()
 	{

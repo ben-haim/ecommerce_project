@@ -75,20 +75,35 @@ public function search($item)
 	return $result;
 }
 
-// public function searchOrder($order)
-// {
-// 	$this->db->like('s_first_name',$order);
-// 	$this->db->or_like('created_at',$order);
-// 	$this->db->or_like('s_address',$order);
-// 	$this->db->or_like('amount',$order);
-// 	$this->db->or_like('status',$order);
-// 	$table = orders JOIN customers ON orders.customer_id = customers.id;
-// 	$result = $this->db->get($table) ->result_array();
-// 	var_dump($result);
-// 	die();
+public function updateStatus($item)
+{
+	$query="UPDATE orders SET status=? WHERE id=?";
+	$value=array($item['status'], $item['id']);
+	$result = $this->db->query($query, $value);
+
+}
+
+public function searchOrder($order)
+{
+	// $this->db->select('order.id, b_first_name, orders.created_at, b_address, amount, status');
+	// $this->db->from('orders');
+	// $this->db->join('customers', 'order.customer_id = customers.id', 'inner');
+	// $this->db->like('order.id', $order);
+	// $this->db->or_like('b_first_name', $order);
+	// $this->db->or_like('b_address', $order);
+	// $this->db->or_like('amount', $order);
+	// $this->db->or_like('status', $order);
+	// $result =  $this->db->get()->result_array();
+	// var_dump($result);
+	// die();
 	
-// 	return $result;
-// }
+	$query = "SELECT * FROM orders JOIN customers ON orders.customer_id = customers.id WHERE orders.id LIKE ? OR b_first_name LIKE ? OR b_address LIKE ? OR amount LIKE ? OR status LIKE ?";
+	// $search = $order;
+	$result = $this->db->query($query, $order)->result_array();
+	var_dump($result);
+	die();
+	
+}
 
 
 }

@@ -64,7 +64,7 @@ $total += $itemtotal;
 			  	<h4>Shipping: $1.00</h4>
 			  	<h4>Total Price: $<?= $total + 1.00 ?></h4>
 			</div>
-			<div class="box status order-detail col-md-3">
+			<div class="order-detail col-md-3" id="status">
 			  	<h4>Status: <?= $order['status'] ?></h4>
 			</div>
 		</div>
