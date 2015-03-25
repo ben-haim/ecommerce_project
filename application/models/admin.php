@@ -90,20 +90,4 @@ public function search($item)
 		return $result;
 	}
 
-// public function searchOrder($order)
-// {
-// 	$this->db->like('s_first_name',$order);
-// 	$this->db->or_like('created_at',$order);
-// 	$this->db->or_like('s_address',$order);
-// 	$this->db->or_like('amount',$order);
-// 	$this->db->or_like('status',$order);
-// 	$table = orders JOIN customers ON orders.customer_id = customers.id;
-// 	$result = $this->db->get($table) ->result_array();
-// 	var_dump($result);
-// 	die();
-	
-// 	return $result;
-// }
-
-
 }

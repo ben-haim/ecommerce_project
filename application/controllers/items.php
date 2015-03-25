@@ -62,9 +62,10 @@ class Items extends CI_Controller {
 
 	public function placeOrder()
 	{
-		$postData = $this->input->post();
-		var_dump($postData);
+
+		var_dump($this->input->post());
 		die();
+
 	}
 
 	public function cart()
@@ -90,6 +91,44 @@ class Items extends CI_Controller {
 		else
 		{
 			$this->session->set_flashdata('error', 'Something went wrong! Invalid email or username.');
+			redirect('/');
+		}
+	}
+
+	public function register()
+	{
+		$postData = $this->input->post();
+		$result = $this->item->register($postData);
+		if($result)
+		{
+			$this->session->set_flashdata('success', 'Account successfully created! Please add your shipping and billing info below:');
+			redirect('update_account/'.$this->db->insert_id());
+		}
+		else
+		{
+			$this->session->set_flashdata('error', 'Something went wrong! Please try again later.');
+			redirect('/');
+		}
+	}
+
+	public function account($id)
+	{
+		$user = $this->item->retrieveOneUser($id);
+		$this->load->view('update_account', array('user' => $user));
+	}
+
+	public function updateAccount()
+	{
+		$postData = $this->input->post();
+		$result = $this->item->updateAccount($postData);
+		if($result)
+		{
+			$this->session->set_flashdata('success', 'Account successfully updated!');
+			redirect('/');
+		}
+		else
+		{
+			$this->session->set_flashdata('error', 'Something went wrong! We could not update your account info at this moment.');
 			redirect('/');
 		}
 	}
