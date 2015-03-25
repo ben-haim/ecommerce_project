@@ -17,7 +17,8 @@
 <?php   }
         else
         {
-?>        <a href="/logOut"><button type="button" class="btn btn-primary">Log Out</button></a>
+?>        <a href="/update_account/<?= $this->session->userdata('id');?>"><button type="button" class="btn btn-primary">Account</button></a>
+          <a href="/logOut"><button type="button" class="btn btn-primary">Log Out</button></a>
 <?php        
         }
         $cart = $this->session->userdata('orders');

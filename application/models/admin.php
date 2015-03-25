@@ -96,6 +96,7 @@ class admin extends CI_Model{
 		return $result;
 	}
 
+<<<<<<< HEAD
 	public function searchOrder($order)
 	{
 	// 	$this->db->like('s_first_name',$order);
@@ -115,4 +116,6 @@ class admin extends CI_Model{
 	}
 
 
+=======
+>>>>>>> e78c312af5402e9c57c8fa2be690e3a135d4cc3a
 }
