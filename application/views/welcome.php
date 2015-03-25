@@ -104,7 +104,7 @@
             
             <div class="col-sm-6 col-md-4">
               <div class="thumbnail category-display">
-                <a href="/show/items/category/fuzz"><img src="/assets/img/md/1.png" height="99" width="148" alt="effect pedal"></a>
+                <a href="/show/items/category/fuzz"><img src="/assets/img/main/1.png" height="99" width="148" alt="effect pedal"></a>
                 <div class="caption">
                   <h4>Fuzz</h4>
                 </div>
@@ -112,7 +112,7 @@
             </div>
             <div class="col-sm-6 col-md-4">
               <div class="thumbnail category-display">
-                <a href="/show/items/category/delay"><img src="/assets/img/md/2.png" height="99" width="148" alt="effect pedal"></a>
+                <a href="/show/items/category/delay"><img src="/assets/img/main/2.png" height="99" width="148" alt="effect pedal"></a>
                 <div class="caption">
                   <h4>Delay</h4>
                 </div>
@@ -120,7 +120,7 @@
             </div>
             <div class="col-sm-6 col-md-4">
               <div class="thumbnail category-display">
-                <a href="/show/items/category/reverb"><img src="/assets/img/md/3.png" height="99" width="148" alt="effect pedal"></a>
+                <a href="/show/items/category/reverb"><img src="/assets/img/main/3.png" height="99" width="148" alt="effect pedal"></a>
                 <div class="caption">
                   <h4>Reverb</h4>
                 </div>

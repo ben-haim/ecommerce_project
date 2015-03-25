@@ -51,7 +51,7 @@
             {
 ?>            <div class="col-sm-6 col-md-3 item">
                 <div class="thumbnail">
-                  <a href="/show/item/<?= $item['id']; ?>"><img src="/assets/img/md/<?= $item['img_name']; ?>" height="99" width="148" alt="effect pedal"></a>
+                  <a href="/show/item/<?= $item['id']; ?>"><img src="/assets/img/lg/<?= $item['img_name']; ?>" height="99" width="148" alt="effect pedal"></a>
                   <div class="caption">
                     <h4><?= $item['name']; ?></h4>
                     <p>$<?= $item['price']; ?></p>

@@ -38,7 +38,7 @@
 							$count++;
 ?>	        <tr>
 		          <th scope="row"><?= $count; ?></th>
-		          <td><img src="/assets/img/md/<?= $result['img_name'];?>"></td>
+		          <td><img src="/assets/img/lg/<?= $result['img_name']; ?>" height="99" width="148" alt="effect pedal"></td>
 		          <td><?= $result['name'] ?></td>
 		          <td>
 		          	<?= $item['quantity'] ?>

@@ -16,18 +16,16 @@ $route['show/items/category/(:any)'] = "/items/getItemsByCategory/$1";
 
 $route['404_override'] = '';
 
-
-
 $route['admin'] = 'admins';
 
 $route['login'] = "admins/login";
-
 
 // admin routes
 
 $route['logoff'] = "admins/logoff";
 $route['order'] = "admins/retrieveOneOrder";
 $route['dashboard'] = "admins/dashboard";
+$route['admins/home'] = "admins/index";
 $route['home'] = "admins/index";
 $route['products'] = "admins/products";
 $route['edit'] = "admins/edit";
@@ -38,6 +36,11 @@ $route['delete/(:num)'] = "admins/delete/$1";
 $route['search'] = "admins/search";
 $route['search_order'] = "admins/search_order";
 $route['status'] = "admins/status";
+
+
+$route['upload'] = "admins/upload";
+$route['upload_photo'] = "admins/upload_photo";
+
 
 
 
