@@ -53,6 +53,9 @@ button.link {
 button.link:hover {
 	text-decoration: underline;
 }
+#red {
+	color: #d9230f;
+}
 div.alert {
 	text-align: center;
 }

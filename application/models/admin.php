@@ -53,8 +53,8 @@ class admin extends CI_Model {
 
 	public function createNew($item)
 	{
-		$query="INSERT INTO items (name, description, category, price, inventory, created_at, updated_at) VALUES (?, ?, ?, ?, ?, NOW(), NOW())";
-		$value=array($item['name'], $item['description'], $item['categories'], $item['price'], $item['inventory']);
+		$query="INSERT INTO items (name, description, category, price, inventory, video, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, NOW(), NOW())";
+		$value=array($item['name'], $item['description'], $item['categories'], $item['price'], $item['inventory'], $item['video']);
 		$this->db->query($query, $value);
 
 		$id = $this->db->insert_id();

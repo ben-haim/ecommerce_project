@@ -55,6 +55,7 @@
                       <li><a href="/show/items/category/fender">Fender Guitars</a></li>
                       <li><a href="/show/items/category/gibson">Gibson Guitars</a></li>
                       <li class="divider"></li>
+                      <li><a href="/show/items/category/accessories">Accessories</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -129,6 +130,30 @@
                 <a href="/show/items/category/distortion"><img src="/assets/img/main/3.png" height="99" width="148" alt="effect pedal"></a>
                 <div class="caption">
                   <h4>Distortion Pedals</h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail category-display">
+                <a href="/show/items/category/fender"><img src="/assets/img/main/4.jpg" height="99" width="148" alt="effect pedal"></a>
+                <div class="caption">
+                  <h4>Fender Guitars</h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail category-display">
+                <a href="/show/items/category/gibson"><img src="/assets/img/main/5.png" height="99" width="148" alt="effect pedal"></a>
+                <div class="caption">
+                  <h4>Gibson Guitars</h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail category-display">
+                <a href="/show/items/category/accessories"><img src="/assets/img/main/6.png" height="99" width="148" alt="effect pedal"></a>
+                <div class="caption">
+                  <h4>Accessories</h4>
                 </div>
               </div>
             </div>

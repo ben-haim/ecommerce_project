@@ -60,11 +60,11 @@ foreach ($products as $product) {
 			<td><?= $product['inventory'] ?></td>
 			<td>5</td>
 			<td>
-				<form class="inline" action="/edit" method="post">
+			<form class="inline" action="/edit" method="post">
 				<input type="hidden" name="id" value="<?= $product['id'] ?>" > 
 				<input id="input" type="submit" value="edit" > 
 			</form>| 
-				<a class="inline" href='/delete/<?= $product['id'] ?>'>remove</a>
+				<a class="inline" id="red" href='/delete/<?= $product['id'] ?>'>remove</a>
 			</td>
 		</tr>
 <?php 

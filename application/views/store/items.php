@@ -17,10 +17,13 @@
         <!-- sidebar -->
         <div class="col-lg-3">
           <div class="list-group">
-            <a href="/getAllItems" class="list-group-item active">All Pedals</a>
+            <a class="list-group-item active">Categories</a>
+            <a href="/getAllItems" class="list-group-item">All Pedals</a>
             <a href="/show/items/category/fuzz" class="list-group-item">Fuzz Pedals</a>
             <a href="/show/items/category/delay" class="list-group-item">Delay Pedals</a>
             <a href="/show/items/category/distortion" class="list-group-item">Distortion Pedals</a>
+            <a href="/show/items/category/fender" class="list-group-item">Fender Guitars</a>
+            <a href="/show/items/category/gibson" class="list-group-item">Gibson Guitars</a>
           </div>
         </div>
 
@@ -62,6 +65,7 @@
                       <li><a href="/show/items/category/fender">Fender Guitars</a></li>
                       <li><a href="/show/items/category/gibson">Gibson Guitars</a></li>
                       <li class="divider"></li>
+                      <li><a href="/show/items/category/accessories">Accessories</a></li>
                     </ul>
                   </li>
                 </ul>

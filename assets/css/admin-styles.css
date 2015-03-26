@@ -1,14 +1,9 @@
-/**{
-	outline: 1px dotted red;
-}*/
-body{
-	margin: 0 auto;
-}
 .box{
 	border: 1px solid #ccc;
 	border-radius: 10px;
 	padding: 30px;
-	margin-bottom: 20px;
+	margin: 15px auto;
+	max-width: 600px;
 	text-align: left;
 }
 .login{
@@ -37,7 +32,6 @@ thead{
 }
 textarea{
 	width: 100%;
-	height: 400px;
 }
 .userInfo{
 	width: 100%;
@@ -76,6 +70,6 @@ a:hover{
 .submit{
 	text-align: center;
 }
-div.jumbotron > div.container > h3 {
+div.jumbotron > div.container > h3, h2 {
 	text-align: center;
 }

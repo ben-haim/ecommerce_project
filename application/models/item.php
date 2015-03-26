@@ -4,7 +4,7 @@ class Item extends CI_Model {
 
 	public function retrieveAllItems()
 	{
-		$query = "SELECT * FROM items JOIN photos ON photos_item_id = items.id";
+		$query = "SELECT * FROM items JOIN photos ON photos_item_id = items.id WHERE category NOT LIKE 'fender' AND category NOT LIKE 'gibson' AND category NOT LIKE 'accessories'";
 		$items = $this->db->query( $query )->result_array();
 		return $items;
 	}
