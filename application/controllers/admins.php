@@ -4,14 +4,7 @@ class admins extends CI_Controller {
 
 	public function index()
 	{
-		if($this->session->userdata('user_level') == 'admin')
-		{
-			redirect('admins/dashboard');
-		}
-		else
-		{
-			redirect('admin');
-		}
+		$this->load->view('admin/index');
 	}
 
 	public function dashboard($page = 1)
@@ -155,7 +148,7 @@ class admins extends CI_Controller {
 	public function logoff()
 	{
 		$this->session->sess_destroy();
-		redirect('admins');
+		redirect('admin');
 	}
 
 	public function upload()

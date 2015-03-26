@@ -18,6 +18,7 @@
         <div class="col-lg-3">
           <div class="list-group">
             <a class="list-group-item active">Categories</a>
+            <a href="/" class="list-group-item">Home</a>
             <a href="/getAllItems" class="list-group-item">All Pedals</a>
             <a href="/show/items/category/fuzz" class="list-group-item">Fuzz Pedals</a>
             <a href="/show/items/category/delay" class="list-group-item">Delay Pedals</a>
