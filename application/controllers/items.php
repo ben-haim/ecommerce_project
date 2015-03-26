@@ -11,17 +11,29 @@ class Items extends CI_Controller {
 		$this->load->view('store/welcome');
 	}
 
-	public function getItemsByCategory($id)
+	public function getItemsByCategory($category)
 	{
-		$items = $this->item->getItemsByCategory($id);
+		$items = $this->item->getItemsByCategory($category);
 		$this->load->view('store/items', array('items' => $items));
 	}
 
-	public function showItem($id)
+	public function getAllItems()
+	{
+		$items = $this->item->retrieveAllItems();
+		$this->load->view('store/items', array('items' => $items));
+	}
+
+	public function showItem($id, $category)
 	{
 		$item = $this->item->retrieveOneItem($id);
-		$items = $this->item->retrieveSimilarItems();
+		$items = $this->item->retrieveSimilarItems($id, $category);
 		$this->load->view('store/item', array('item' => $item, 'items' => $items));
+	}
+
+	public function search_items()
+	{
+		$result = $this->item->search_items($this->input->post('search'));
+		$this->load->view('store/items', array('items' => $result));
 	}
 
 	public function cart()

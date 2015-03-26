@@ -20,7 +20,7 @@
       <div class="row">
         <div class="col-md-6">
 			<br>
-			<form action="/search" method="post">
+			<form action="/search_products" method="post">
 	    	    <div class="input-group">
 			        <input type="text" name="search" placeholder="Search for...">
 			        <input type="submit" value="Go!">
@@ -53,7 +53,7 @@ foreach ($products as $product) {
 		<tr>
 			<td>
 				<img src="/assets/img/lg/<?= $product['img_name'] ?>" height="60px" width="80px">
-				<button class="btn btn-info btn-block change-img" data-toggle="modal" data-target=".upload-photo" value="<?= $product['id']; ?>">Change Image</button>
+				<a class="change-img btn-block" data-toggle="modal" data-target=".upload-photo" value="<?= $product['id']; ?>">Change Image</a>
 			</td>
 			<td><?= $product['id'] ?></td>
 			<td><?= $product['name'] ?></td>
@@ -75,7 +75,7 @@ foreach ($products as $product) {
 	</tbody>
 </table>
 <nav>
-  <ul class="pagination">
+  <ul class="pager">
     <li>
       <a href="#" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>

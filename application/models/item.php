@@ -16,18 +16,27 @@ class Item extends CI_Model {
 		return $item;
 	}
 
-	public function getItemsByCategory($id)
+	public function getItemsByCategory($category)
 	{
 		$query = "SELECT * FROM items JOIN photos ON photos_item_id = items.id WHERE category = ?";
-		$item = $this->db->query( $query, array($id) )->result_array();
+		$item = $this->db->query( $query, array($category) )->result_array();
 		return $item;
 	}
 
-	public function retrieveSimilarItems()
+	public function retrieveSimilarItems($id, $category)
 	{
-		$query = "SELECT * FROM items JOIN photos ON photos_item_id = items.id WHERE category = 'delay'";
-		$items = $this->db->query( $query )->result_array();
+		$query = "SELECT * FROM items JOIN photos ON photos_item_id = items.id WHERE category = ? AND items.id NOT LIKE ?";
+		$values = array($category, $id);
+		$items = $this->db->query( $query, $values )->result_array();
 		return $items;
+	}
+
+	public function search_items($item)
+	{
+		$this->db->like('name', $item);
+		$this->db->join('photos', 'items.id = photos.photos_item_id', 'inner');
+		$result = $this->db->get('items')->result_array();
+		return $result;
 	}
 
 	public function submitOrder($postData, $items)

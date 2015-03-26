@@ -16,9 +16,9 @@
 
         <!-- sidebar -->
         <div class="col-lg-3">
-          <form action="#" method="post">
+          <form action="/search_items" method="post" >
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for...">
+              <input type="text" name="search" class="form-control" placeholder="Search for...">
               <span class="input-group-btn">
                 <button class="btn btn-default" type="submit">Search!</button>
               </span>
@@ -26,11 +26,10 @@
           </form>
           <br>
           <div class="list-group">
-            <a href="/" class="list-group-item active">All Pedals</a>
-            <a href="/show/items/category/delay" class="list-group-item">Delay</a>
-            <a href="/show/items/category/fuzz" class="list-group-item">Fuzz</a>
-            <a href="/show/items/category/reverb" class="list-group-item">Reverb</a>
-            <a href="/show/items/category/fuzz" class="list-group-item">Show All</a>
+            <a href="/getAllItems" class="list-group-item active">All Pedals</a>
+            <a href="/show/items/category/fuzz" class="list-group-item">Fuzz Pedals</a>
+            <a href="/show/items/category/delay" class="list-group-item">Delay Pedals</a>
+            <a href="/show/items/category/reverb" class="list-group-item">Distortion Pedals</a>
           </div>
         </div>
 
@@ -56,14 +55,14 @@
           {
 ?>          <div class="col-sm-6 col-md-4 item">
               <div class="thumbnail product-display">
-                <a href="/show/item/<?= $item['id']; ?>"><img src="/assets/img/lg/<?= $item['img_name']; ?>" height="99" width="148" alt="effect pedal"></a>
+                <a href="/show/item/<?= $item['id']; ?>/<?= $item['category']; ?>"><img src="/assets/img/lg/<?= $item['img_name']; ?>" height="99" width="148" alt="effect pedal"></a>
                 <div class="caption">
                   <h4><?= $item['name']; ?></h4>
                   <p>$<?= $item['price']; ?></p>
                   <form action="/addToCart" method="post">
                         <input type="hidden" name="id" value="<?= $item['id']; ?>">
                         <input type="hidden" name="quantity" value="1">
-                        <input class="btn btn-info btn-block" type="submit" value="Quick Add">
+                        <input class="btn btn-info btn-block" type="submit" value="Add to Cart">
                     </form>
                 </div>
               </div>

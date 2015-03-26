@@ -8,9 +8,11 @@ $route['placeOrder'] = "items/placeOrder";
 $route['cart'] = "items/cart";
 $route['success'] = "items/success";
 $route['addToCart'] = "items/addToCart";
+$route['getAllItems'] = "items/getAllItems";
 $route['removeFromCart'] = "items/removeFromCart";
-$route['show/item/(:num)'] = "/items/showItem/$1";
+$route['show/item/(:num)/(:any)'] = "/items/showItem/$1/$2";
 $route['show/items/category/(:any)'] = "/items/getItemsByCategory/$1";
+$route['search_items'] = "items/search_items";
 
 // SESSION CONTROLLER
 $route['signIn'] = "users/signIn";
@@ -33,8 +35,8 @@ $route['editProduct'] = "admins/updateItem";
 $route['addProduct'] = "admins/addItem";
 $route['createNew'] = "admins/createNew";
 $route['delete/(:num)'] = "admins/delete/$1";
-$route['search'] = "admins/search";
-$route['search_order'] = "admins/search_order";
+$route['search_products'] = "admins/search_products";
+$route['search_orders'] = "admins/search_orders";
 $route['status'] = "admins/status";
 
 // PHOTOS CONTROLLER

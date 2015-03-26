@@ -47,23 +47,25 @@
 				  <div class="col-sm-6 col-md-12">
 					<h4>Similar Products:</h4>
 <!-- Similar Items LOOP STARTS -->
-<?php       foreach ($items as $item) 
+<?php       $count=0;
+						foreach ($items as $item)
             {
+            	if($count>3) break;
 ?>            <div class="col-sm-6 col-md-3 item">
                 <div class="thumbnail">
-                  <a href="/show/item/<?= $item['id']; ?>"><img src="/assets/img/lg/<?= $item['img_name']; ?>" height="99" width="148" alt="effect pedal"></a>
+                  <a href="/show/item/<?= $item['id']; ?>/<?= $item['category']; ?>"><img src="/assets/img/lg/<?= $item['img_name']; ?>" height="99" width="148" alt="effect pedal"></a>
                   <div class="caption">
                     <h4><?= $item['name']; ?></h4>
                     <p>$<?= $item['price']; ?></p>
  										<form action="/addToCart" method="post">
 			                  <input type="hidden" name="id" value="<?= $item['id']; ?>">
 			                  <input type="hidden" name="quantity" value="1">
-			  								<input class="btn btn-info btn-block" type="submit" value="Quick Add">
+			  								<input class="btn btn-info btn-block" type="submit" value="Add to Cart">
 										</form>
                   </div>
                 </div>
               </div>
-<?php 
+<?php 				$count++;
             }
 ?>
 <!-- Similar Items LOOP ENDS -->

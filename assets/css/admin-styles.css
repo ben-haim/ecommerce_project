@@ -77,3 +77,6 @@ a:hover{
 .submit{
 	text-align: center;
 }
+div.jumbotron > div.container > h3 {
+	text-align: center;
+}

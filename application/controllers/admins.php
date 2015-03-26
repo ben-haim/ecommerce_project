@@ -103,16 +103,16 @@ class admins extends CI_Controller {
 		redirect('admins/products');
 	}
 
-	public function search()
+	public function search_products()
 	{
-		$result = $this->admin->search($this->input->post('search'));
-		$this->load->view('admin/search_result', array('items'=>$result));
+		$result = $this->admin->search_products($this->input->post('search'));
+		$this->load->view('admin/products', array('products'=>$result));
 	}
 	
-	public function search_order()
+	public function search_orders()
 	{
-		$result = $this->admin->searchOrder($this->input->post('search'));
-		$this->load->view('admin/search_result', array('items'=>$result));
+		$result = $this->admin->search_orders($this->input->post('search'));
+		$this->load->view('admin/dashboard', array('orders'=> $result));
 	}
 
 	public function orderPage($page = 1)

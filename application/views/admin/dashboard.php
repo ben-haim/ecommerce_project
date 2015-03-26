@@ -1,6 +1,6 @@
-  <?php $this->load->view('partials/head') ?>
+<?php $this->load->view('partials/head') ?>
   <title>Dashboard Orders</title>
- <?php $this->load->view('partials/header_logoff') ?>
+<?php $this->load->view('partials/header_logoff') ?>
 <?php $this->load->view('partials/messages') ?>
 
   <div class="jumbotron">
@@ -10,12 +10,12 @@
       <div class="row">
         <div class="col-md-6">
 			<br>
-			<form action="/search_order" method="post">
-	    	    <div class="input-group">
-			        <input type="text" name="search" placeholder="Search for...">
-			        <input type="submit" value="Go!">
-			    </div>
-	        </form>
+			<form action="/search_orders" method="post">
+	    	<div class="input-group">
+			  	<input type="text" name="search" placeholder="Search for...">
+			    <input type="submit" value="Go!">
+			  </div>
+	    </form>
         	<br>
 		  </div>
       <div class="select-order col-md-6 pull-right">
@@ -53,15 +53,10 @@ foreach ($orders as $order) {
 			<td><?= $order['s_first_name'] ?></td>
 			<td><?= $order['created_at'] ?></td>
 			<td><?= $order['s_address'] ?></td>
-			<td><?= $order['amount'] ?></td>
+			<td>$<?= $order['amount'] ?></td>
 			<td>
 				<form action="status" method="post">
-				<select name='status'>
-					<option><?= $order['status'] ?></option>
-					<option value='Shipped'>Shipped</option>
-				  	<option value='Order in process'>Order in process</option>
-				  	<option value='Cancelled'>Cancelled</option>
-				</select>
+				<input type="text" value="<?= $order['status'] ?>" name="status">
 				<input type="hidden" name="id" value="<?= $order['id'] ?>">
 				<input type="submit" value="Change">
 			</form>
@@ -75,7 +70,7 @@ foreach ($orders as $order) {
 	</tbody>
 </table>
 <nav>
-  <ul class="pagination">
+  <ul class="pager">
     <li>
       <a href="#" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>

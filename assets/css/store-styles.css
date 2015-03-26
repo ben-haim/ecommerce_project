@@ -17,12 +17,15 @@ div.category-display > div.caption > h4 {
 div.caption > h4 {
 	min-height: 50px;
 }
+div.thumbnail {
+	padding: 20px 10px;
+}
 div.thumbnail > a > img {
 	margin-top: 15px;
 	margin-bottom: -5px;
 }
 div.thumbnail > img {
-	margin-top: 15px;
+	margin-top: 5px;
 	margin-bottom: -5px;
 }
 table, th {
@@ -52,4 +55,7 @@ div.alert {
 }
 button.inline {
 	margin-top: 15px; 
+}
+.change-img {
+	cursor: pointer;
 }
