@@ -38,10 +38,20 @@ input.link {
 	border: none;
 	background: none;
 	color: salmon;
-	text-decoration: underline
+	text-decoration: underline;
 }
 input.link:hover {
 	text-decoration: none
+}
+button.link {
+	border: none;
+	background: none;
+	display: block;
+	color: #d9230f;
+	margin: 0 auto;
+}
+button.link:hover {
+	text-decoration: underline;
 }
 div.alert {
 	text-align: center;

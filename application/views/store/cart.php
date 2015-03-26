@@ -52,7 +52,9 @@ else
 							$count++;
 ?>	        <tr>
 		          <th scope="row"><?= $count; ?></th>
-		          <td><img src="/assets/img/lg/<?= $result['img_name']; ?>" height="99" width="148" alt="effect pedal"></td>
+		          <td>
+		          	 <a href="/show/item/<?= $result['id']; ?>/<?= $result['category']; ?>"><img src="/assets/img/lg/<?= $result['img_name']; ?>" height="99" width="148" alt="effect pedal"></a>
+		          </td>
 		          <td><?= $result['name'] ?></td>
 		          <td>
 		          	<?= $item['quantity'] ?>

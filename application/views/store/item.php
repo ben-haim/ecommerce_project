@@ -42,6 +42,21 @@
 						</div>
 					</div>
 				</div>
+<?php 	if($item['video'] != NULL) 
+				{
+?>
+				<div class="row">
+					<div class="col-sm-6 col-md-12">
+						<div class="bs-example" data-example-id="responsive-embed-16by9-iframe-youtube">
+	    				<div class="embed-responsive embed-responsive-16by9">
+	      				<iframe class="embed-responsive-item" src="<?= $item['video']; ?>" frameborder="0" allowfullscreen></iframe>
+	    				</div>
+  					</div>
+					</div>
+				</div>
+<?php 
+				}
+?>
 				<br>
 				<div class="row">
 				  <div class="col-sm-6 col-md-12">

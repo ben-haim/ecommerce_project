@@ -53,12 +53,12 @@ foreach ($products as $product) {
 		<tr>
 			<td>
 				<img src="/assets/img/lg/<?= $product['img_name'] ?>" height="60px" width="80px">
-				<a class="change-img btn-block" data-toggle="modal" data-target=".upload-photo" value="<?= $product['id']; ?>">Change Image</a>
+				<button class="change-img link" data-toggle="modal" data-target=".upload-photo" value="<?= $product['id']; ?>">Change Image</button>
 			</td>
 			<td><?= $product['id'] ?></td>
 			<td><?= $product['name'] ?></td>
 			<td><?= $product['inventory'] ?></td>
-			<td>1000</td>
+			<td>5</td>
 			<td>
 				<form class="inline" action="/edit" method="post">
 				<input type="hidden" name="id" value="<?= $product['id'] ?>" > 

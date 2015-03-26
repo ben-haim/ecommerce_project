@@ -32,7 +32,7 @@ class admin extends CI_Model {
 
 	public function retrieveAllProducts()
 	{
-		$query = "SELECT *, items.id AS id FROM items LEFT JOIN photos ON photos.photos_item_id = items.id";
+		$query = "SELECT *, items.id AS id FROM items LEFT JOIN photos ON photos.photos_item_id = items.id ORDER BY items.created_at DESC";
 		$result = $this->db->query($query)->result_array();
 		return $result;
 	}

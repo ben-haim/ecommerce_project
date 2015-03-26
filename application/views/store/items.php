@@ -16,38 +16,67 @@
 
         <!-- sidebar -->
         <div class="col-lg-3">
-          <form action="/search_items" method="post" >
-            <div class="input-group">
-              <input type="text" name="search" class="form-control" placeholder="Search for...">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="submit">Search!</button>
-              </span>
-            </div><!-- /input-group -->
-          </form>
-          <br>
           <div class="list-group">
             <a href="/getAllItems" class="list-group-item active">All Pedals</a>
             <a href="/show/items/category/fuzz" class="list-group-item">Fuzz Pedals</a>
             <a href="/show/items/category/delay" class="list-group-item">Delay Pedals</a>
-            <a href="/show/items/category/reverb" class="list-group-item">Distortion Pedals</a>
+            <a href="/show/items/category/distortion" class="list-group-item">Distortion Pedals</a>
           </div>
         </div>
 
         <!-- maincontent -->
         <div class="col-lg-9">
-
-          <div class="col-lg-12">
-            <div class="header clearfix">
-              <nav>
-                <ul class="nav nav-pills pull-right">
-                  <li role="presentation"><a href="#">first</a></li>
-                  <li role="presentation"><a href="#">next</a></li>
-                  <li role="presentation"><a href="#">previous</a></li>
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <ul class="nav navbar-nav">
+                  <li><a href="/getAllItems">All Pedals</a></li>
                 </ul>
-              </nav>
-              <h3 class="text-muted">Delay Pedals (Page 1)</h3>
-             </div>
-          </div>
+                  <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Effects<span class="caret"></span></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="/show/items/category/fuzz">Fuzz Pedals</a></li>
+                        <li><a href="/show/items/category/delay">Delay Pedals</a></li>
+                        <li><a href="/show/items/category/distortion">Distortion Pedals</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/getAllItems">All Pedals</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+              </div>
+
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Guitars<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="/show/items/category/fender">Fender Guitars</a></li>
+                      <li><a href="/show/items/category/gibson">Gibson Guitars</a></li>
+                      <li class="divider"></li>
+                    </ul>
+                  </li>
+                </ul>
+                
+                <ul class="nav navbar-nav navbar-right">
+                <form action="/search_items" method="post" class="navbar-form navbar-right" id="search-bar" role="search">
+                  <div class="form-group">
+                    <input type="text" name="search" class="form-control" placeholder="Search">
+                  </div>
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                </ul>
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+          </nav>
           
           <div class="row">
 <!-- item loop begins -->
