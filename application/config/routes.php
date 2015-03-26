@@ -27,7 +27,6 @@ $route['login'] = "admins/login";
 $route['logoff'] = "admins/logoff";
 $route['order'] = "admins/retrieveOneOrder";
 $route['dashboard'] = "admins/dashboard";
-$route['admins/home'] = "admins/index";
 $route['home'] = "admins/index";
 $route['products'] = "admins/products";
 $route['edit'] = "admins/edit";

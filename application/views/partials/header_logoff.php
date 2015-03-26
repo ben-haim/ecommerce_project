@@ -9,9 +9,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="home">Dashboard</a>
-        <a class="navbar-brand" href="dashboard">Orders</a>
-        <a class="navbar-brand" href="products">Products</a>
+        <a class="navbar-brand" href="/dashboard">Orders</a>
+        <a class="navbar-brand" href="/products">Products</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <form class="navbar-form navbar-right">

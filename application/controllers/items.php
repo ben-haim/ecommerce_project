@@ -17,10 +17,21 @@ class Items extends CI_Controller {
 		$this->load->view('store/items', array('items' => $items));
 	}
 
-	public function getAllItems()
+	public function getAllItems($page = 1)
 	{
 		$items = $this->item->retrieveAllItems();
-		$this->load->view('store/items', array('items' => $items));
+		$page_item_data = array();
+    $count = 6 * $page - 6;
+    for ($i=$count;$i<count($items);$i++)
+    {
+      array_push($page_item_data, $items[$i]);
+      $count++;
+      if ($count >= 6 * $page)
+      {
+        break;
+      }
+    }
+			$this->load->view('store/items', array('items' => $page_item_data, 'total_items' => count($items) ));
 	}
 
 	public function showItem($id, $category)

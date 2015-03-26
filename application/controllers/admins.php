@@ -6,12 +6,127 @@ class admins extends CI_Controller {
 	{
 		if($this->session->userdata('user_level') == 'admin')
 		{
-			$result = $this->admin->retrieveAll();
-			$this->load->view('admin/dashboard', array('orders'=>$result));
+			redirect('admins/dashboard');
+		}
+		else
+		{
+			redirect('admin');
+		}
+	}
+
+	public function dashboard($page = 1)
+	{
+		if($this->session->userdata('user_level') == 'admin')
+		{
+			$orders = $this->admin->retrieveAll();
+			$page_order_data = array();
+	    $count = 5 * $page - 5;
+	    for ($i=$count;$i<count($orders);$i++)
+	    {
+	      array_push($page_order_data, $orders[$i]);
+	      $count++;
+	      if ($count >= 5 * $page)
+	      {
+	        break;
+	      }
+	    }
+				$this->load->view('admin/dashboard', array('orders' => $page_order_data, 'total_orders' => count($orders)));
 		}
 		else{
-			$this->load->view('admin/index');
+			$this->load->view('admin');
+		}		
+	}
+
+	public function retrieveOneOrder()
+	{
+		$order = $this->admin->retrieveOneOrder($this->input->post('id'));
+		$products = $this->admin->retrieveOrderProduct($this->input->post('id'));
+		$this->load->view('admin/order_detail', array('order'=>$order, 'products'=>$products));
+	}
+
+	public function status()
+	{
+		$this->admin->updateStatus($this->input->post());
+		redirect('admins/dashboard');
+	}
+
+	public function products($page = 1)
+	{
+		if($this->session->userdata('user_level') == 'admin')
+		{
+			$products = $this->admin->retrieveAllProducts();
+			$page_product_data = array();
+	    $count = 5 * $page - 5;
+	    for ($i=$count;$i<count($products);$i++)
+	    {
+	      array_push($page_product_data, $products[$i]);
+	      $count++;
+	      if ($count >= 5 * $page)
+	      {
+	        break;
+	      }
+	    }
+				$this->load->view('admin/products', array('products' => $page_product_data, 'total_products' => count($products) ));
 		}
+		else
+		{
+			redirect('admin');
+		}
+	}
+
+	public function edit()
+	{
+		if($this->session->userdata('user_level') == 'admin')
+		{	
+			$result = $this->admin->retrieveOneItem($this->input->post('id'));
+			$this->load->view('admin/edit_product', array('item'=>$result));
+		}
+		else
+		{
+			redirect('admin');
+		}
+	}
+
+	public function addItem()
+	{
+		if($this->session->userdata('user_level') == 'admin')
+		{
+			$this->load->view('admin/newProduct');
+		}
+		else
+		{
+			redirect('admin');
+		}
+	}
+
+	public function createNew()
+	{
+		$this->admin->createNew($this->input->post());
+		redirect('admins/products');
+	}
+
+	public function updateItem()
+	{
+		$this->admin->updateItem($this->input->post());
+		redirect('admins/products');
+	}
+
+	public function delete($id)
+	{
+		$this->admin->delete($id);
+		redirect('admins/products');
+	}
+
+	public function search_products()
+	{
+		$result = $this->admin->search_products($this->input->post('search'));
+		$this->load->view('admin/products', array('products'=>$result));
+	}
+	
+	public function search_orders()
+	{
+		$result = $this->admin->search_orders($this->input->post('search'));
+		$this->load->view('admin/dashboard', array('orders'=> $result));
 	}
 
 	public function login()
@@ -36,101 +151,6 @@ class admins extends CI_Controller {
 			redirect('admins');
 		}
 	}
-
-	public function dashboard()
-	{
-		if($this->session->userdata('user_level') == 'admin')
-		{
-			$result = $this->admin->retrieveAll();
-			$this->load->view('admin/dashboard', array('orders'=>$result));
-		}
-		else{
-			$this->load->view('admin/index');
-		}		
-	}
-
-	public function retrieveOneOrder()
-	{
-		$order = $this->admin->retrieveOneOrder($this->input->post('id'));
-		$products = $this->admin->retrieveOrderProduct($this->input->post('id'));
-		$this->load->view('admin/order_detail', array('order'=>$order, 'products'=>$products));
-	}
-
-	public function status()
-	{
-		$this->admin->updateStatus($this->input->post());
-		redirect('admins/dashboard');
-	}
-
-	public function products()
-	{
-		$result = $this->admin->retrieveAllProducts();
-		$this->load->library('pagination');
-		$config['base_url'] = 'admin/products';
-		$config['total_rows'] = count($result);
-		$config['per_page'] = 2; 
-		$this->pagination->initialize($config); 
-		$this->pagination->create_links();
-		$this->load->view('admin/products', array('products'=>$result));
-	}
-
-	public function edit()
-	{
-		$result = $this->admin->retrieveOneItem($this->input->post('id'));
-		$this->load->view('admin/edit_product', array('item'=>$result));
-	}
-
-	public function updateItem()
-	{
-		$this->admin->updateItem($this->input->post());
-		redirect('admins/products');
-	}
-
-	public function addItem()
-	{
-		$this->load->view('admin/newProduct');
-	}
-
-	public function createNew()
-	{
-		$this->admin->createNew($this->input->post());
-		redirect('admins/products');
-	}
-
-	public function delete($id)
-	{
-		$this->admin->delete($id);
-		redirect('admins/products');
-	}
-
-	public function search_products()
-	{
-		$result = $this->admin->search_products($this->input->post('search'));
-		$this->load->view('admin/products', array('products'=>$result));
-	}
-	
-	public function search_orders()
-	{
-		$result = $this->admin->search_orders($this->input->post('search'));
-		$this->load->view('admin/dashboard', array('orders'=> $result));
-	}
-
-	public function orderPage($page = 1)
-    {
-      $all_order_data = $this->admin->retrieveAll();
-      $page_order_data = array();
-      $count = 5 * $page - 5;
-      for ($i=$count;$i<count($all_order_data);$i++)
-      {
-	      array_push($page_order_data, $all_order_data[$i]);
-	      $count++;
-	      if ($count >= 5 * $page)
-	      {
-	        break;
-	      }
-      }
-	      $this->load->view('admin/dashboard', $page_order_data);
-    }
 
 	public function logoff()
 	{

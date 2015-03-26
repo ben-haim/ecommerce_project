@@ -5,8 +5,8 @@ class admin extends CI_Model {
 	public function retrieveAll()
 	{
 		$query = "SELECT orders.id, DATE_FORMAT(orders.created_at, '%M %d, %Y') AS created_at, s_first_name, s_address, amount, status FROM orders JOIN customers ON orders.customer_id = customers.id ORDER BY orders.id DESC";
-		$result = $this->db->query( $query )->result_array();
-		return $result;
+		$orders = $this->db->query( $query )->result_array();
+		return $orders;
 	}
 
 	public function retreiveOneUser($email)

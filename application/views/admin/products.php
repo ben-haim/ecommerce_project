@@ -76,21 +76,18 @@ foreach ($products as $product) {
 </table>
 <nav>
   <ul class="pager">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
+<?php 
+		if(isset($total_products)) {
+			$count = 1;
+			for ($i=0;$i<$total_products;$i+=5)
+			{
+				$url = "<li><a class='pagination' href='/admins/products/" . $count;
+				$url = $url . "'>" . $count . "</a></li>";
+				echo $url;
+				$count++;
+			}
+		}
+?>
   </ul>
 </nav>
 </div>
